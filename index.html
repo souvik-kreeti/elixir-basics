@@ -1,0 +1,446 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Elixir</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/black.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/monokai.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h1>Functional Programming using Elixir</h1>
+			</section>
+			<section>
+				<h2>What is Functional Programming</h2>
+				<p class="justify">
+					Functional programming is a programming paradigm in which we try to bind everything in pure mathematical
+					functions style. It is a declarative type of programming style.
+				</p>
+				<p class="justify">
+					<b>Programming Languages that support functional programming:</b> Haskell, JavaScript, Scala, Erlang,
+					Lisp, ML,
+					Clojure, OCaml, Common Lisp, Racket.
+				</p>
+			</section>
+			<section>
+				<section>
+					<h2>Functional Programming vs OOP</h2>
+					<table class="table table-striped table-dark">
+						<thead class="thead-dark">
+							<tr>
+								<th scope="col">Attribute</th>
+								<th scope="col">Functional</th>
+								<th scope="col">OOP</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>#1 Definition</td>
+								<td>Emphasizes on evaluation of functions</td>
+								<td>Based on concepts of objects</td>
+							</tr>
+							<tr>
+								<td>#2 Data</td>
+								<td>Immutable Data</td>
+								<td>Mutable Data</td>
+							</tr>
+							<tr>
+								<td>#3 Model</td>
+								<td>Declarative programming model</td>
+								<td>Imperative programming model</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section>
+					<h2>Functional Programming vs OOP</h2>
+					<table class="table table-striped table-dark">
+						<thead class="thead-dark">
+							<tr>
+								<th scope="col">Attribute</th>
+								<th scope="col">Functional</th>
+								<th scope="col">OOP</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>#4 Support</td>
+								<td>Parallel programming</td>
+								<td>No parallel programming</td>
+							</tr>
+							<tr>
+								<td>#5 Execution</td>
+								<td>Statements executive in any order</td>
+								<td>Statements should be executed in particular order</td>
+							</tr>
+							<tr>
+								<td>#6 Iteration</td>
+								<td>Recursion</td>
+								<td>Loops</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<section>
+					<h2>Functional Programming vs OOP</h2>
+					<table class="table table-striped table-dark">
+						<thead class="thead-dark">
+							<tr>
+								<th scope="col">Attribute</th>
+								<th scope="col">Functional</th>
+								<th scope="col">OOP</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>#7 Element</td>
+								<td>Variables and Functions</td>
+								<td>Objects and Methods</td>
+							</tr>
+							<tr>
+								<td>#8 Use</td>
+								<td>Used when there are few things with more operations</td>
+								<td>Used when there are many things with few operations</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+			</section>
+			<section>
+				<h2>Elixir</h2>
+				<p class="justify">
+					<ul>
+						<li>
+							Elixir is a dynamic, functional language designed for building scalable and maintainable applications.
+						</li>
+						<li>
+							Elixir uses the Erlang VM, known for running low-latency, distributed and fault-tolerant systems
+						</li>
+					</ul>
+				</p>
+			</section>
+			<section>
+				<h2>Elixir : Basic Types</h2>
+				<p class="code-block">
+					iex> 1 # integer<br />
+					iex> 0x1F # integer<br />
+					iex> 1.0 # float<br />
+					iex> true # boolean<br />
+					iex> :atom # atom / symbol<br />
+					iex> "elixir" # string<br />
+					iex> [1, 2, 3] # list<br />
+					iex> {1, 2, 3} # tuple<br />
+				</p>
+			</section>
+			<section>
+				<section>
+					<h2>Basic arithmetic</h2>
+					<p class="code-block">
+						iex> 1 + 2<br />
+						3<br />
+						iex> 5 * 5<br />
+						25<br />
+						iex> 10 / 2<br />
+						5.0<br />
+					</p>
+				</section>
+				<section>
+					<h2>Basic arithmetic</h2>
+					<p class="code-block">
+						iex> div(10, 2)<br />
+						5<br />
+						iex> rem(10, 3)<br />
+						1<br />
+					</p>
+				</section>
+			</section>
+			<section>
+				<h2>Booleans</h2>
+				<p class="code-block">
+					iex> true<br />
+					true<br />
+					iex> true == false<br />
+					false<br />
+					iex> 1 == true<br />
+					false<br />
+				</p>
+				<p class="justify">
+					Elixir provides functions to check for a value type.<br /> For example, the is_boolean/1
+					function can be used to check if a value is a boolean or not:
+				</p>
+				<p class="code-block">
+					iex> is_boolean(true)<br />
+					true<br />
+					iex> is_boolean(1)<br />
+					false<br />
+				</p>
+			</section>
+			<section>
+				<section>
+					<h2>Atoms</h2>
+					<p class="justify">
+						An atom is a constant whose value is its own name. Some other languages call these symbols.
+					</p>
+					<p class="code-block">
+						iex> :apple<br />
+						:apple<br />
+						iex> :orange<br />
+						:orange<br />
+						iex> :watermelon<br />
+						:watermelon<br />
+					</p>
+					<p class="justify">
+						Atoms are equal if their names are equal.
+					</p>
+					<p class="code-block">
+						iex> :apple == :apple<br />
+						true<br />
+						iex> :apple == :orange<br />
+						false<br />
+					</p>
+				</section>
+				<section>
+					<h2>Atoms</h2>
+					<p class="justify">
+						The booleans true and false are also atoms:
+					</p>
+					<p class="code-block">
+						iex> true == :true<br />
+						true<br />
+						iex> is_atom(false)<br />
+						true<br />
+						iex> is_boolean(:false)<br />
+						true
+					</p>
+					<p class="justify">
+						Elixir allows us to skip the leading : for the atoms false, true and nil.
+					</p>
+					<p class="code-block">
+						iex> is_atom(Hello)<br />
+						true
+					</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Strings</h2>
+					<p class="justify">
+						Strings in Elixir are delimited by double quotes.<br />
+						Strings can have line breaks in them.
+					</p>
+					<p class="code-block">
+						iex>"hello<br />
+						...>#{:world}"<br />
+						"hello\n world"<br />
+						iex> IO.puts "hello\n world"<br />
+						hello<br />
+						&nbsp;world<br />
+						:ok
+					</p>
+					<p class="justify">
+
+					</p>
+					<p class="code-block">
+						iex> String.length("hellö")<br />
+						5<br />
+						iex> String.upcase("hellö")<br />
+						"HELLÖ"<br />
+					</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Anonymous functions</h2>
+					<p class="justify">
+						Anonymous functions can be created inline and are delimited by the keywords fn and end
+					</p>
+					<p class="code-block">
+						iex> fn a, b -> a + b end<br />
+						#Function
+						<12.71889879/2 in :erl_eval.expr/5> <br />
+						iex> (fn a, b -> a + b end).(1, 2)<br />
+						3<br />
+						iex> is_function(fn a, b -> a + b end)<br />
+						true
+					</p>
+				</section>
+				<section>
+					<h2>Anonymous functions</h2>
+					<p class="justify">
+						Anonymous functions are “first class citizens” in Elixir, meaning they can be assigned to variables, and
+						passed as arguments to other functions.
+					</p>
+					<p class="code-block">
+						iex> add = fn a, b -> a + b end<br />
+						#Function
+						<13.91303403/2 in :erl_eval.expr/5> <br />
+						iex> add<br />
+						#Function
+						<13.91303403/2 in :erl_eval.expr/5> <br />
+						iex> add.(1, 2)<br />
+						3<br />
+						# check if add is a function that expects exactly 2 arguments<br />
+						iex> is_function(add, 2)<br />
+						true<br />
+						# check if add is a function that expects exactly 1 argument<br />
+						iex> is_function(add, 1)<br />
+						false
+					</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Lists</h2>
+					<p class="justify">
+						Elixir uses square brackets to specify a list of values. Values can be of any type
+					</p>
+					<p class="code-block">
+						iex> [1, 2, true, 3.5]<br />
+						[1, 2, true, 3]<br />
+						iex> length [1, 2, true, 3.5]<br />
+						3
+					</p>
+					<p class="justify">
+						Two lists can be concatenated or subtracted using the ++ and -- operators respectively.
+					</p>
+					<p class="code-block">
+						iex> [1, 2, 3] ++ [4, 5, 6]<br />
+						[1, 2, 3, 4, 5, 6]<br />
+						iex> [1, true, 2, false, 3, true] -- [true, false]<br />
+						[1, 2, 3, true]
+					</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Tuples</h2>
+					<p class="justify">
+						Elixir uses curly brackets to define tuples. Like lists, tuples can hold any value
+					</p>
+					<p class="code-block">
+						iex> {:ok, "hello"}<br />
+						{:ok, "hello"}<br />
+						iex> tuple_size {:ok, "hello"}<br />
+						2
+					</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Lists or tuples?</h2>
+					<p class="justify">
+						<ul>
+							<li>
+								Lists are stored in memory as linked lists, meaning that each element in a list holds its value and
+								points to the following element until the end of the list is reached.
+							</li>
+							<li>
+								Tuples store elements contiguously in memory. This means accessing a tuple element by index or getting
+								the tuple size is a fast operation. Indexes start from zero
+							</li>
+						</ul>
+					</p>
+				</section>
+				<section>
+					<h2>Lists or tuples?</h2>
+					<p class="justify">
+						Single quotes are charlists, double quotes are strings.
+					</p>
+					<p class="code-block">
+						iex> i 'hello'<br />
+						Term<br />
+						'hello'<br />
+						Data type<br />
+						List<br />
+						Description<br />
+						...<br />
+						Raw representation<br />
+						[104, 101, 108, 108, 111]<br />
+						Reference modules<br />
+						List
+					</p>
+					<p class="code-block">
+						iex> 'hello' == "hello"<br />
+						false
+					</p>
+				</section>
+				<section>
+					<h2>Lists or tuples?</h2>
+					<p class="justify">
+						Accessing a tuple element by index or getting the tuple size is a fast operation.
+					</p>
+					<p class="code-block">
+						iex> tuple = {:ok, "hello"}<br />
+						{:ok, "hello"}<br />
+						iex> elem(tuple, 1)<br />
+						"hello"<br />
+						iex> tuple_size(tuple)<br />
+						2
+					</p>
+				</section>
+				<section>
+					<h2>Lists or tuples?</h2>
+					<p class="justify">
+						It is also possible to put an element at a particular index in a tuple with put_elem/3
+					</p>
+					<p class="code-block">
+						iex> tuple = {:ok, "hello"}<br />
+						{:ok, "hello"}<br />
+						iex> put_elem(tuple, 1, "world")<br />
+						{:ok, "world"}<br />
+						iex> tuple<br />
+						{:ok, "hello"}
+					</p>
+				</section>
+			</section>
+		</div>
+	</div>
+
+	<script src="js/reveal.js"></script>
+
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			dependencies: [
+				{ src: 'plugin/markdown/marked.js' },
+				{ src: 'plugin/markdown/markdown.js' },
+				{ src: 'plugin/notes/notes.js', async: true },
+				{ src: 'plugin/highlight/highlight.js', async: true }
+			]
+		});
+	</script>
+</body>
+
+</html>
